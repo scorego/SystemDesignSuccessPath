@@ -1,0 +1,438 @@
+# System Design Problem Metadata Schema
+# This schema defines the standardized structure for problem metadata
+
+problemMetadata:
+  # Basic Information
+  title:
+    type: string
+    required: true
+    description: "Clear, descriptive title of the system design problem"
+    example: "Design a URL Shortener (like bit.ly)"
+    
+  problemId:
+    type: string
+    required: true
+    pattern: "^[a-z0-9-]+$"
+    description: "Unique identifier for the problem (kebab-case)"
+    example: "url-shortener-system"
+    
+  version:
+    type: string
+    required: true
+    pattern: "^\\d+\\.\\d+(\\.\\d+)?$"
+    description: "Version number following semantic versioning"
+    example: "1.2.0"
+    
+  lastUpdated:
+    type: string
+    format: date
+    required: true
+    description: "Date when the problem was last updated"
+    example: "2024-01-15"
+
+  # Classification
+  difficulty:
+    type: string
+    required: true
+    enum: ["Beginner", "Easy", "Medium", "Hard", "Expert"]
+    description: "Difficulty level of the problem"
+    
+  category:
+    type: string
+    required: true
+    enum: 
+      - "Social Media & Content"
+      - "Communication & Messaging" 
+      - "Media & Entertainment"
+      - "E-commerce & Financial"
+      - "Search & Discovery"
+      - "Real-time & Location"
+      - "Infrastructure & Platform"
+      - "Data Processing & Analytics"
+    description: "Primary category of the system being designed"
+    
+  subcategory:
+    type: array
+    items:
+      type: string
+    description: "More specific categorization"
+    example: ["URL Management", "Analytics", "Caching"]
+    
+  # Company and Interview Information
+  companies:
+    type: array
+    items:
+      type: string
+    required: true
+    description: "Companies known to ask this question in interviews"
+    example: ["Google", "Meta", "Amazon", "Microsoft", "Netflix"]
+    
+  interviewFrequency:
+    type: string
+    enum: ["Very High", "High", "Medium", "Low", "Rare"]
+    description: "How frequently this problem appears in interviews"
+    
+  # Technical Tags
+  tags:
+    type: array
+    items:
+      type: string
+    required: true
+    description: "Technical concepts and technologies covered"
+    example: ["distributed-systems", "caching", "databases", "load-balancing"]
+    
+  technologies:
+    type: object
+    properties:
+      databases:
+        type: array
+        items:
+          type: string
+        example: ["PostgreSQL", "Redis", "Cassandra"]
+      messageQueues:
+        type: array
+        items:
+          type: string
+        example: ["Apache Kafka", "RabbitMQ", "Amazon SQS"]
+      caching:
+        type: array
+        items:
+          type: string
+        example: ["Redis", "Memcached", "CDN"]
+      loadBalancers:
+        type: array
+        items:
+          type: string
+        example: ["NGINX", "HAProxy", "AWS ALB"]
+      monitoring:
+        type: array
+        items:
+          type: string
+        example: ["Prometheus", "Grafana", "ELK Stack"]
+        
+  # Scale and Complexity
+  scale:
+    type: object
+    required: true
+    properties:
+      users:
+        type: object
+        properties:
+          total:
+            type: string
+            description: "Total number of users"
+            example: "100 million"
+          dailyActive:
+            type: string
+            description: "Daily active users"
+            example: "10 million"
+          peakConcurrent:
+            type: string
+            description: "Peak concurrent users"
+            example: "1 million"
+      traffic:
+        type: object
+        properties:
+          requestsPerSecond:
+            type: string
+            description: "Peak requests per second"
+            example: "100K QPS"
+          dataVolume:
+            type: string
+            description: "Data volume processed"
+            example: "1 TB/day"
+      storage:
+        type: object
+        properties:
+          totalData:
+            type: string
+            description: "Total data storage requirement"
+            example: "10 PB"
+          growthRate:
+            type: string
+            description: "Data growth rate"
+            example: "100 GB/day"
+            
+  # Time Estimates
+  timeEstimates:
+    type: object
+    required: true
+    properties:
+      reading:
+        type: integer
+        description: "Time to read and understand problem (minutes)"
+        minimum: 5
+        maximum: 30
+        example: 10
+      solving:
+        type: integer
+        description: "Time to solve in interview setting (minutes)"
+        minimum: 30
+        maximum: 120
+        example: 45
+      deepDive:
+        type: integer
+        description: "Time for detailed implementation (minutes)"
+        minimum: 60
+        maximum: 240
+        example: 120
+        
+  # Learning Information
+  learningObjectives:
+    type: object
+    required: true
+    properties:
+      concepts:
+        type: array
+        items:
+          type: string
+        description: "Key system design concepts covered"
+        example: ["Horizontal Scaling", "Database Sharding", "Caching Strategies"]
+      skills:
+        type: array
+        items:
+          type: string
+        description: "Skills developed by solving this problem"
+        example: ["Capacity Estimation", "API Design", "Database Design"]
+      patterns:
+        type: array
+        items:
+          type: string
+        description: "Design patterns and architectural patterns used"
+        example: ["Cache-Aside Pattern", "Database Per Service", "API Gateway"]
+        
+  # Prerequisites
+  prerequisites:
+    type: object
+    properties:
+      knowledge:
+        type: array
+        items:
+          type: string
+        description: "Required background knowledge"
+        example: ["Basic Database Concepts", "HTTP Protocol", "Caching Fundamentals"]
+      experience:
+        type: array
+        items:
+          type: string
+        description: "Recommended experience level"
+        example: ["2+ years backend development", "Experience with distributed systems"]
+      priorProblems:
+        type: array
+        items:
+          type: string
+        description: "Recommended problems to solve first"
+        example: ["design-chat-system", "design-notification-system"]
+        
+  # Relationships
+  relationships:
+    type: object
+    properties:
+      similarProblems:
+        type: array
+        items:
+          type: object
+          properties:
+            problemId:
+              type: string
+            similarity:
+              type: string
+              enum: ["Very High", "High", "Medium", "Low"]
+            reason:
+              type: string
+        description: "Problems with similar design patterns or challenges"
+        
+      followUpProblems:
+        type: array
+        items:
+          type: string
+        description: "Problems that build upon this one"
+        example: ["design-analytics-system", "design-recommendation-engine"]
+        
+      conceptualLinks:
+        type: array
+        items:
+          type: object
+          properties:
+            concept:
+              type: string
+            chapter:
+              type: string
+            section:
+              type: string
+        description: "Links to relevant book chapters and concepts"
+        
+  # Assessment and Evaluation
+  assessmentCriteria:
+    type: object
+    properties:
+      evaluationRubric:
+        type: object
+        properties:
+          requirementGathering:
+            type: object
+            properties:
+              weight:
+                type: number
+                minimum: 0
+                maximum: 1
+              criteria:
+                type: array
+                items:
+                  type: string
+          systemDesign:
+            type: object
+            properties:
+              weight:
+                type: number
+                minimum: 0
+                maximum: 1
+              criteria:
+                type: array
+                items:
+                  type: string
+          scalingStrategy:
+            type: object
+            properties:
+              weight:
+                type: number
+                minimum: 0
+                maximum: 1
+              criteria:
+                type: array
+                items:
+                  type: string
+          communication:
+            type: object
+            properties:
+              weight:
+                type: number
+                minimum: 0
+                maximum: 1
+              criteria:
+                type: array
+                items:
+                  type: string
+                  
+      commonMistakes:
+        type: array
+        items:
+          type: object
+          properties:
+            mistake:
+              type: string
+            category:
+              type: string
+              enum: ["Technical", "Communication", "Process", "Scaling"]
+            severity:
+              type: string
+              enum: ["Critical", "Major", "Minor"]
+            prevention:
+              type: string
+        description: "Common mistakes and how to avoid them"
+        
+      excellentAnswerTraits:
+        type: array
+        items:
+          type: string
+        description: "Characteristics of excellent solutions"
+        
+  # Quality Metrics
+  qualityMetrics:
+    type: object
+    properties:
+      popularity:
+        type: number
+        minimum: 1
+        maximum: 5
+        description: "Problem popularity rating (1-5 stars)"
+        
+      difficulty_rating:
+        type: number
+        minimum: 1
+        maximum: 10
+        description: "Actual difficulty rating from users (1-10)"
+        
+      completion_rate:
+        type: number
+        minimum: 0
+        maximum: 1
+        description: "Percentage of users who complete the problem"
+        
+      satisfaction_score:
+        type: number
+        minimum: 1
+        maximum: 5
+        description: "User satisfaction score (1-5)"
+        
+  # Content Structure
+  contentStructure:
+    type: object
+    properties:
+      hasDiagrams:
+        type: boolean
+        description: "Whether the problem includes architectural diagrams"
+        
+      hasCodeExamples:
+        type: boolean
+        description: "Whether the problem includes code snippets"
+        
+      hasCalculations:
+        type: boolean
+        description: "Whether the problem includes capacity calculations"
+        
+      hasAlternatives:
+        type: boolean
+        description: "Whether multiple solution approaches are provided"
+        
+      interactiveElements:
+        type: array
+        items:
+          type: string
+          enum: ["Calculator", "Diagram Builder", "Quiz", "Simulation"]
+        description: "Interactive elements included in the problem"
+        
+  # Maintenance Information
+  maintenance:
+    type: object
+    properties:
+      author:
+        type: string
+        description: "Primary author of the problem"
+        
+      reviewers:
+        type: array
+        items:
+          type: string
+        description: "Technical reviewers who validated the problem"
+        
+      lastReview:
+        type: string
+        format: date
+        description: "Date of last technical review"
+        
+      nextReviewDue:
+        type: string
+        format: date
+        description: "When the next review is due"
+        
+      changeLog:
+        type: array
+        items:
+          type: object
+          properties:
+            version:
+              type: string
+            date:
+              type: string
+              format: date
+            changes:
+              type: array
+              items:
+                type: string
+        description: "History of changes to the problem"
+
+# Example Usage:
+# This schema can be used to validate problem metadata in YAML or JSON format
+# Tools like ajv (JSON Schema validator) can validate against this schema
+# GitBook plugins can use this metadata for enhanced navigation and search

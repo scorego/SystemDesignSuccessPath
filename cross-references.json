@@ -1,0 +1,135 @@
+{
+  "crossReferences": {
+    "concepts": {
+      "CAP Theorem": {
+        "definition": "A theorem stating that a distributed system can only guarantee two of three properties: Consistency, Availability, and Partition tolerance",
+        "mainLocation": "part-i-fundamentals/chapter-03-distributed-systems/cap-theorem.md",
+        "relatedTopics": [
+          "part-i-fundamentals/chapter-03-distributed-systems/consistency-models.md",
+          "part-i-fundamentals/chapter-04-consistency-transactions/acid-properties.md",
+          "part-ii-components/chapter-09-databases/scaling.md"
+        ],
+        "interviewProblems": [
+          "part-iii-interviews/chapter-18-social-media/twitter-feed.md",
+          "part-iii-interviews/chapter-21-ecommerce/amazon.md"
+        ]
+      },
+      "Load Balancing": {
+        "definition": "Distributing incoming network traffic across multiple servers to ensure no single server bears too much demand",
+        "mainLocation": "part-ii-components/chapter-11-load-balancing/README.md",
+        "relatedTopics": [
+          "part-i-fundamentals/chapter-05-scaling/horizontal-scaling.md",
+          "part-ii-components/chapter-11-load-balancing/algorithms.md",
+          "part-ii-components/chapter-11-load-balancing/types.md"
+        ],
+        "interviewProblems": [
+          "part-iii-interviews/chapter-20-media/youtube.md",
+          "part-iii-interviews/chapter-23-realtime/uber.md"
+        ]
+      },
+      "Microservices": {
+        "definition": "An architectural approach where applications are built as a collection of loosely coupled services",
+        "mainLocation": "part-i-fundamentals/chapter-06-architecture/microservices.md",
+        "relatedTopics": [
+          "part-i-fundamentals/chapter-06-architecture/monolithic.md",
+          "part-ii-components/chapter-13-apis/rest-design.md",
+          "part-iv-advanced/chapter-25-distributed/microservices-patterns.md"
+        ],
+        "interviewProblems": [
+          "part-iii-interviews/chapter-19-messaging/slack.md",
+          "part-iii-interviews/chapter-21-ecommerce/amazon.md"
+        ]
+      },
+      "Caching": {
+        "definition": "Storing frequently accessed data in a fast storage layer to improve system performance",
+        "mainLocation": "part-ii-components/chapter-10-caching/README.md",
+        "relatedTopics": [
+          "part-ii-components/chapter-10-caching/patterns.md",
+          "part-ii-components/chapter-10-caching/levels.md",
+          "part-ii-components/chapter-15-storage/cdn.md"
+        ],
+        "interviewProblems": [
+          "part-iii-interviews/chapter-22-search/google-search.md",
+          "part-iii-interviews/chapter-24-infrastructure/distributed-cache.md"
+        ]
+      }
+    },
+    "technologies": {
+      "Redis": {
+        "category": "Caching/Database",
+        "description": "In-memory data structure store used as database, cache, and message broker",
+        "mainLocation": "part-ii-components/chapter-10-caching/technologies.md",
+        "useCases": [
+          "part-iii-interviews/chapter-18-social-media/twitter-feed.md",
+          "part-iii-interviews/chapter-24-infrastructure/rate-limiter.md"
+        ]
+      },
+      "Kafka": {
+        "category": "Message Queue",
+        "description": "Distributed event streaming platform for high-throughput data pipelines",
+        "mainLocation": "part-ii-components/chapter-12-messaging/queue-systems.md",
+        "useCases": [
+          "part-iii-interviews/chapter-20-media/netflix.md",
+          "part-iii-interviews/chapter-23-realtime/uber.md"
+        ]
+      }
+    },
+    "patterns": {
+      "Database Sharding": {
+        "category": "Scaling Pattern",
+        "description": "Horizontal partitioning of data across multiple database instances",
+        "mainLocation": "part-i-fundamentals/chapter-05-scaling/sharding.md",
+        "implementations": [
+          "part-iii-interviews/chapter-18-social-media/instagram.md",
+          "part-iii-interviews/chapter-21-ecommerce/amazon.md"
+        ]
+      },
+      "Event Sourcing": {
+        "category": "Architecture Pattern", 
+        "description": "Storing all changes to application state as a sequence of events",
+        "mainLocation": "part-iv-advanced/chapter-25-distributed/event-sourcing-cqrs.md",
+        "implementations": [
+          "part-iii-interviews/chapter-21-ecommerce/trading.md"
+        ]
+      }
+    }
+  },
+  "learningPaths": {
+    "beginner": {
+      "name": "Beginner Learning Path",
+      "description": "Start here if you're new to system design",
+      "estimatedTime": "4-6 weeks",
+      "chapters": [
+        "part-i-fundamentals/chapter-01-introduction/README.md",
+        "part-i-fundamentals/chapter-02-networks/README.md",
+        "part-i-fundamentals/chapter-03-distributed-systems/README.md",
+        "part-i-fundamentals/chapter-05-scaling/README.md",
+        "part-ii-components/chapter-09-databases/README.md",
+        "part-ii-components/chapter-10-caching/README.md"
+      ]
+    },
+    "interview-prep": {
+      "name": "Interview Preparation Path",
+      "description": "Focused preparation for system design interviews",
+      "estimatedTime": "2-3 weeks",
+      "chapters": [
+        "part-iii-interviews/chapter-17-framework/README.md",
+        "part-iii-interviews/chapter-18-social-media/README.md",
+        "part-iii-interviews/chapter-19-messaging/README.md",
+        "part-iii-interviews/chapter-20-media/README.md",
+        "part-iii-interviews/chapter-21-ecommerce/README.md"
+      ]
+    },
+    "advanced": {
+      "name": "Advanced Topics Path",
+      "description": "Deep dive into advanced system design concepts",
+      "estimatedTime": "3-4 weeks", 
+      "chapters": [
+        "part-iv-advanced/chapter-25-distributed/README.md",
+        "part-iv-advanced/chapter-26-security/README.md",
+        "part-iv-advanced/chapter-27-performance/README.md",
+        "part-iv-advanced/chapter-28-devops/README.md"
+      ]
+    }
+  }
+}

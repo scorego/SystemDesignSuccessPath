@@ -1,0 +1,48 @@
+{
+  "name": "system-design-gitbook",
+  "version": "1.0.0",
+  "description": "Comprehensive System Design Guide for Software Engineers",
+  "main": "README.md",
+  "scripts": {
+    "serve": "gitbook serve",
+    "build": "gitbook build",
+    "install-gitbook": "gitbook install",
+    "pdf": "gitbook pdf . ./system-design-gitbook.pdf",
+    "epub": "gitbook epub . ./system-design-gitbook.epub",
+    "mobi": "gitbook mobi . ./system-design-gitbook.mobi",
+    "clean": "rm -rf _book",
+    "deploy": "npm run build && gh-pages -d _book",
+    "validate": "node validate-gitbook.js",
+    "test": "node test-setup.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/scorego/SystemDesignSuccessPath.git"
+  },
+  "keywords": [
+    "system-design",
+    "interview",
+    "software-engineering",
+    "distributed-systems",
+    "scalability",
+    "architecture",
+    "gitbook"
+  ],
+  "author": "scorego",
+  "license": "CC-BY-SA-4.0",
+  "bugs": {
+    "url": "https://github.com/scorego/SystemDesignSuccessPath/issues"
+  },
+  "homepage": "https://not-available-now.com/",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2"
+  },
+  "engines": {
+    "node": ">=12.0.0",
+    "npm": ">=6.0.0"
+  },
+  "dependencies": {
+    "honkit": "^6.0.3",
+    "js-yaml": "^4.1.0"
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "navigation": {
+    "breadcrumbs": {
+      "enabled": true,
+      "showHome": true,
+      "separator": " > ",
+      "maxDepth": 4
+    },
+    "tableOfContents": {
+      "enabled": true,
+      "maxDepth": 3,
+      "expandable": true,
+      "showPageNumbers": false,
+      "collapsible": true
+    },
+    "crossReferences": {
+      "enabled": true,
+      "autoLink": true,
+      "showRelated": true,
+      "maxRelated": 5
+    },
+    "progressTracking": {
+      "enabled": true,
+      "showProgress": true,
+      "trackReadTime": true,
+      "showEstimatedTime": true,
+      "persistProgress": true
+    },
+    "quickNavigation": {
+      "enabled": true,
+      "showPrevNext": true,
+      "showChapterNav": true,
+      "keyboardShortcuts": true
+    }
+  },
+  "search": {
+    "enhanced": true,
+    "faceted": {
+      "enabled": true,
+      "facets": [
+        "difficulty",
+        "topic", 
+        "company",
+        "technology",
+        "part"
+      ]
+    },
+    "conceptDictionary": {
+      "enabled": true,
+      "autoComplete": true,
+      "fuzzySearch": true,
+      "synonyms": true
+    },
+    "quickReference": {
+      "enabled": true,
+      "showDefinitions": true,
+      "hoverCards": true
+    }
+  },
+  "userExperience": {
+    "dualMode": {
+      "enabled": true,
+      "learningMode": {
+        "sequential": true,
+        "progressTracking": true,
+        "prerequisites": true
+      },
+      "referenceMode": {
+        "searchFirst": true,
+        "quickAccess": true,
+        "bookmarks": true
+      }
+    },
+    "personalization": {
+      "enabled": true,
+      "readingHistory": true,
+      "recommendations": true,
+      "customDashboard": true
+    }
+  }
+}

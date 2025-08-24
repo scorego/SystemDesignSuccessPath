@@ -1,0 +1,73 @@
+{
+  "title": "System Design Success Path",
+  "description": "A comprehensive guide to system design fundamentals and interview preparation",
+  "author": "System Design Success Path Contributors",
+  "language": "en",
+  "gitbook": ">=3.0.0",
+  "root": ".",
+  "structure": {
+    "readme": "README.md",
+    "summary": "SUMMARY.md",
+    "glossary": "appendices/glossary.md"
+  },
+  "plugins": [
+    "advanced-emoji",
+    "anchors",
+    "back-to-top-button",
+    "chapter-fold",
+    "code",
+    "copy-code-button",
+    "expandable-chapters",
+    "github",
+    "hide-element",
+    "mermaid-gb3",
+    "page-toc-button",
+    "prism",
+    "search-plus",
+    "splitter",
+    "theme-comscore",
+    "toggle-chapters",
+    "versions-select"
+  ],
+  "pluginsConfig": {
+    "github": {
+      "url": "https://github.com/your-repo/system-design-gitbook"
+    },
+    "search-plus": {
+      "maxIndexSize": 1000000,
+      "preprocess": {
+        "class": "search-plus",
+        "id": "search-plus"
+      }
+    },
+    "theme-comscore": {
+      "showLevel": true,
+      "copyButtons": true
+    },
+    "page-toc-button": {
+      "maxTocDepth": 3,
+      "minTocSize": 2
+    },
+    "prism": {
+      "css": [
+        "prism-themes/themes/prism-ghcolors.css"
+      ],
+      "lang": {
+        "flow": "typescript"
+      }
+    },
+    "mermaid-gb3": {
+      "theme": "default"
+    },
+    "hide-element": {
+      "elements": [".gitbook-link"]
+    },
+    "expandable-chapters": {
+      "deep": true
+    }
+  },
+  "variables": {
+    "version": "1.0.0",
+    "updated": "2024-01-01"
+  }
+}

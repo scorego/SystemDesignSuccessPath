@@ -1,0 +1,71 @@
+root: ./
+
+structure:
+  readme: README.md
+  summary: SUMMARY.md
+  glossary: appendices/glossary.md
+
+# GitBook configuration for enhanced navigation
+pdf:
+  fontSize: 12
+  paperSize: a4
+  margin:
+    right: 62
+    left: 62
+    top: 56
+    bottom: 56
+
+# Search configuration
+search:
+  enabled: true
+  maxResults: 20
+  
+# Navigation configuration  
+navigation:
+  expandable: true
+  showPageToc: true
+  
+# Theme configuration
+theme:
+  showPageToc: true
+  showBreadcrumbs: true
+
+plugins:
+  - search-plus
+  - github
+  - edit-link
+  - anchors
+  - prism
+  - copy-code-button
+  - expandable-chapters
+
+pluginsConfig:
+  github:
+    url: https://github.com/scorego/SystemDesignSuccessPath
+  edit-link:
+    base: https://github.com/scorego/SystemDesignSuccessPath/edit/main
+    label: Edit This Page
+  analytics:
+    google: UA-XXXXXXXXX-X
+  sitemap-general:
+    prefix: https://not-available-now.com/
+  search-plus:
+    maxIndexSize: 1000000
+    preprocess:
+      - function(content) { return content.toLowerCase(); }
+
+pdf:
+  fontSize: 12
+  fontFamily: "Arial"
+  paperSize: "a4"
+  margin:
+    top: 56
+    bottom: 56
+    right: 62
+    left: 62
+
+variables:
+  title: "System Design GitBook"
+  description: "Comprehensive System Design Guide for Software Engineers"
+  author: "scorego"
+  version: "1.0.0"

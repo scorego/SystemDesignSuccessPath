@@ -1,0 +1,53 @@
+name: Content Validation
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: |
+        npm install -g gitbook-cli
+        npm install
+        
+    - name: Install GitBook plugins
+      run: gitbook install
+      
+    - name: Validate GitBook structure
+      run: |
+        # Check if required files exist
+        test -f README.md || (echo "README.md is missing" && exit 1)
+        test -f SUMMARY.md || (echo "SUMMARY.md is missing" && exit 1)
+        test -f book.json || (echo "book.json is missing" && exit 1)
+        
+    - name: Build GitBook (validation)
+      run: gitbook build
+      
+    - name: Check for broken links
+      run: |
+        # Install markdown-link-check
+        npm install -g markdown-link-check
+        
+        # Check all markdown files for broken links
+        find . -name "*.md" -not -path "./node_modules/*" -not -path "./_book/*" | xargs markdown-link-check --config .github/markdown-link-check-config.json
+        
+    - name: Spell check
+      uses: rojopolis/spellcheck-github-actions@0.24.0
+      with:
+        config_path: .github/spellcheck-config.yml
+        task_name: Markdown
